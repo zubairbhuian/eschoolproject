@@ -55,8 +55,8 @@ class _ResultScreenState extends State<ResultScreen> {
                     MaterialStateProperty.all(Constants.primaryColor),
               ),
               onPressed: () {
-                _launchInWebView(
-                    Uri.parse('http://www.nisraozan.com//internal_result'));
+                _launchInWebView( //https://www.nisraozan.com/internal_result
+                    Uri.parse('https://www.nisraozan.com/internal_result'));
               },
               child: const Text(
                 "See Result",
