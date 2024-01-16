@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/data/local/local_client.dart';
 import 'package:eschoolproject/student/data/sharepref/shared_preference_helper.dart';
 import 'package:eschoolproject/student/menu_modal/notice/notice_board.dart';
@@ -129,7 +130,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
               color: Constants.primaryColor,
             ),
             child: isLoadingStudent == true
-                ? const Center(child: CircularProgressIndicator())
+                ? const Center(child: AppIndecator())
                 : Padding(
                     padding:
                         const EdgeInsets.only(left: 16, top: 16, right: 16),
@@ -158,7 +159,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
                                     fit: BoxFit.cover,
                                     imageUrl: student['image_url'].toString(),
                                     placeholder: (context, url) =>
-                                        const CircularProgressIndicator(),
+                                        const AppIndecator(),
                                     errorWidget: (context, url, error) =>
                                         SvgPicture.asset(
                                       Assets.personIcon,
@@ -272,7 +273,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
             ),
           ),
           isLoadingNotice == true
-              ? const Center(child: CircularProgressIndicator())
+              ? const Center(child: AppIndecator())
               : Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(left: 8, right: 8),

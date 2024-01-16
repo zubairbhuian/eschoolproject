@@ -4,9 +4,9 @@ import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ChapterDetails extends StatefulWidget {
-  String chapterTitle;
-  dynamic diaryData;
-  ChapterDetails({required this.chapterTitle, required this.diaryData, Key? key}) : super(key: key);
+ final String chapterTitle;
+ final dynamic diaryData;
+ const ChapterDetails({required this.chapterTitle, required this.diaryData, Key? key}) : super(key: key);
 
   @override
   State<ChapterDetails> createState() => _ChapterDetailsState();

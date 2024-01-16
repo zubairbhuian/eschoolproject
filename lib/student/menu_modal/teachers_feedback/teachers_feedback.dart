@@ -1,3 +1,4 @@
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/controllers/feedback_list_controller.dart';
 import 'package:eschoolproject/student/menu_modal/teachers_feedback/teachers_feedback_details.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
@@ -38,7 +39,7 @@ class _TeachersFeedbackState extends State<TeachersFeedback> {
               feedbackList.loader
                   ? const Expanded(
                       child: Center(
-                        child: CircularProgressIndicator(),
+                        child: AppIndecator(),
                       ),
                     )
                   : Expanded(

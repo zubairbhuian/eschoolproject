@@ -1,11 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
+
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/controllers/contact_controller.dart';
-import 'package:eschoolproject/student/data/network/apis/api_client.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../Widget/app_default_bar.dart';
-import '../student/data/network/constants/endpoints.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactScreen extends StatefulWidget {
@@ -52,7 +51,7 @@ class _ContactScreenState extends State<ContactScreen> {
             Expanded(
                 child: contact.loader
                     ? const Center(
-                        child: CircularProgressIndicator(),
+                        child: AppIndecator(),
                       )
                     : Padding(
                         padding: const EdgeInsets.only(left: 8, right: 8),

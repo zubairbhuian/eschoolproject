@@ -1,14 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/utils/assets.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:eschoolproject/teacher/dashboard/teacher_home_screen.dart';
-import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:hive/hive.dart';
 
 import '../../student/dashboard/menu_bar_item_button.dart';
-import '../../student/login/student_login_before_new.dart';
 import '../../student/utils/mixins.dart';
 
 class MainBoardTeacher extends StatelessWidget {
@@ -62,7 +60,7 @@ class MainBoardTeacher extends StatelessWidget {
                                   fit: BoxFit.cover,
                                   imageUrl: teacherImage.toString(),
                                   placeholder: (context, url) =>
-                                      const CircularProgressIndicator(),
+                                      const AppIndecator(),
                                   errorWidget: (context, url, error) =>
                                       SvgPicture.asset(
                                     Assets.personIcon,
@@ -145,22 +143,23 @@ class MainBoardTeacher extends StatelessWidget {
     return Scaffold(
       body: pages[currentIndex],
       extendBody: true,
-      bottomNavigationBar: FloatingNavbar(
-        currentIndex: currentIndex,
-        onTap: onTap,
-        selectedItemColor: Constants.primaryColor,
-        unselectedItemColor: Constants.primaryColor.withOpacity(0.7),
-        selectedBackgroundColor: Colors.transparent,
-        backgroundColor: Colors.blueGrey.shade50,
-        borderRadius: 10,
-        fontSize: 15,
-        items: [
-          FloatingNavbarItem(
-            icon: Icons.home,
-            title: 'Home',
-          ),
-          FloatingNavbarItem(icon: Icons.menu, title: 'Menu'),
-        ],
+      bottomNavigationBar: Container(
+        color: Colors.red,
+        child: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: onTap,
+          selectedItemColor: Constants.primaryColor,
+          unselectedItemColor: Constants.primaryColor.withOpacity(0.7),
+    
+          backgroundColor: Colors.blueGrey.shade50,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(icon:Icon(Icons.menu) , label: 'Menu'),
+          ],
+        ),
       ),
     );
   }

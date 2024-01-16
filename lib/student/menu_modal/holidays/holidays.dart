@@ -1,10 +1,10 @@
 
 import 'package:eschoolproject/Widget/app_default_bar.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/data/network/apis/api_client.dart';
 import 'package:eschoolproject/student/data/network/constants/endpoints.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:table_calendar/table_calendar.dart';
 
 class HolidaysScreen extends StatefulWidget {
   const HolidaysScreen({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class _HolidaysScreenState extends State<HolidaysScreen> {
   DateTime _focusedDay = DateTime.now();
   DateTime firstDay = DateTime.utc(2010, 1, 1);
   DateTime lastDay = DateTime.utc(2100);
-  DateTime?_selectedDay;
+  DateTime?selectedDay;
   bool isLoading = false;
 
   dynamic holidayList;
@@ -25,10 +25,9 @@ class _HolidaysScreenState extends State<HolidaysScreen> {
 
 
   @override
-  void initState() {
-    // TODO: implement initState
+  void initState() {  // 
     super.initState();
-   _selectedDay = _focusedDay;
+   selectedDay = _focusedDay;
     getHolidays();
 
   }
@@ -55,7 +54,7 @@ class _HolidaysScreenState extends State<HolidaysScreen> {
       children: [
         AppDefaultBar(title: "Holidays"),
         isLoading == true?
-        const Expanded(child: Center(child: CircularProgressIndicator()))
+        const Expanded(child: Center(child: AppIndecator()))
             :
         // Padding(
         //   padding: const EdgeInsets.all(8.0),

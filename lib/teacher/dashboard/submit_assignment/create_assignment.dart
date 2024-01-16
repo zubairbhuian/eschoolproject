@@ -1,5 +1,6 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:eschoolproject/Widget/app_default_bar.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/controllers/submit_diary_controller.dart';
 import 'package:eschoolproject/student/data/network/apis/api_client.dart';
 import 'package:flutter/material.dart';
@@ -382,7 +383,7 @@ class _CreateAssignmentState extends State<CreateAssignment> {
                                           fontWeight: FontWeight.bold),
                                     )
                                   : const Center(
-                                      child: CircularProgressIndicator(),
+                                      child: LoadIndecator(),
                                     ),
                             ),
                           )),

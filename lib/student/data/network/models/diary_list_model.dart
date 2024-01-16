@@ -191,7 +191,7 @@ class Dairy {
     end = json['end'];
   }
   String? id;
-  String? teacherName;
+  String? teacherName; //teacher_name
   String? sessionId;
   String? sectionId;
   String? groupId;

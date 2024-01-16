@@ -1,3 +1,4 @@
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/site_message_details_screen/about_school_screen.dart';
 import 'package:eschoolproject/site_message_details_screen/admission_screen.dart';
 import 'package:eschoolproject/site_message_details_screen/contact_screen.dart';
@@ -10,6 +11,7 @@ import 'package:eschoolproject/student/menu_modal/notice/notice_board.dart';
 import 'package:eschoolproject/student/menu_modal/result/result_screen.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
+
 
 import '../data/network/apis/api_client.dart';
 import '../data/network/constants/endpoints.dart';
@@ -54,7 +56,7 @@ class _LogInBeforeNewScreenState extends State<LogInBeforeNewScreen> {
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: isLoading == true
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(child: AppIndecator())
             : Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -125,9 +127,9 @@ class _LogInBeforeNewScreenState extends State<LogInBeforeNewScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                                            LogInBeforeItem(
-                        itemTitle: "Result",
-                        imagePath: "assets/menu_bar_icon/result.png",
+                      LogInBeforeItem(
+                        itemTitle: "Magazine",
+                        imagePath: "assets/menu_bar_icon/megazine.png",
                         siteMessageData: siteMessageData,
                       ),
                       LogInBeforeItem(
@@ -153,6 +155,16 @@ class _LogInBeforeNewScreenState extends State<LogInBeforeNewScreen> {
                         imagePath: "assets/menu_bar_icon/notice.png",
                         siteMessageData: siteMessageData,
                       )
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      LogInBeforeItem(
+                        itemTitle: "Result",
+                        imagePath: "assets/menu_bar_icon/result.png",
+                        siteMessageData: siteMessageData,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),
@@ -196,7 +208,7 @@ class LogInBeforeItem extends StatelessWidget {
       : super(key: key);
   final String itemTitle;
   final String imagePath;
-  dynamic siteMessageData;
+ final dynamic siteMessageData;
 
   @override
   Widget build(BuildContext context) {

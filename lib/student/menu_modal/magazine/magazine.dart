@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eschoolproject/Widget/app_default_bar.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/data/network/apis/api_client.dart';
 import 'package:eschoolproject/student/data/network/constants/endpoints.dart';
 import 'package:eschoolproject/student/menu_modal/magazine/magazine_detail_screen.dart';
@@ -47,7 +48,7 @@ class _MagazineScreenState extends State<MagazineScreen> {
           ),
           isLoading == true
               ? const Expanded(
-                  child: Center(child: CircularProgressIndicator()))
+                  child: Center(child: AppIndecator()))
               : Expanded(
                   child: ListView.builder(
                       padding: EdgeInsets.zero,
@@ -96,7 +97,7 @@ class _MagazineScreenState extends State<MagazineScreen> {
                                                 placeholder: (context, url) =>
                                                     const Center(
                                                         child:
-                                                            CircularProgressIndicator()),
+                                                            AppIndecator()),
                                                 errorWidget:
                                                     (context, url, error) =>
                                                         const Icon(Icons.error, color: Constants.primaryColor,),

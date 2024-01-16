@@ -1,11 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import '../Widget/app_default_bar.dart';
 import '../student/data/network/constants/endpoints.dart';
 
 class HeadmasterMessageScreen extends StatefulWidget {
-  dynamic headmasterMessageData;
+final  dynamic headmasterMessageData;
    HeadmasterMessageScreen({Key? key,required this.headmasterMessageData}) : super(key: key);
 
   @override
@@ -18,8 +19,7 @@ class _HeadmasterMessageScreenState extends State<HeadmasterMessageScreen> {
 
 
   @override
-  void initState() {
-    // TODO: implement initState
+  void initState() {  
     super.initState();
     headmasterMessageData=widget.headmasterMessageData;
 
@@ -47,7 +47,7 @@ class _HeadmasterMessageScreenState extends State<HeadmasterMessageScreen> {
                             imageUrl:Endpoints.baseImageUrl+ headmasterMessageData["image"].toString(),
                             fit: BoxFit.cover,
                             placeholder: (context, url) =>
-                            const Center(child: CircularProgressIndicator()),
+                            const Center(child: AppIndecator()),
                             errorWidget: (context, url, error) =>
                             const Icon(Icons.error),
                           )

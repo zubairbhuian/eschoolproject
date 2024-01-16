@@ -1,11 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import '../Widget/app_default_bar.dart';
 import '../student/data/network/constants/endpoints.dart';
 
 class PresidentMessageScreen extends StatefulWidget {
-  dynamic presidentMessageData;
+ final dynamic presidentMessageData;
  PresidentMessageScreen({Key? key,required this.presidentMessageData}) : super(key: key);
 
   @override
@@ -17,7 +18,6 @@ class _PresidentMessageScreenState extends State<PresidentMessageScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     presidentMessageData = widget.presidentMessageData;
   }
@@ -41,7 +41,7 @@ class _PresidentMessageScreenState extends State<PresidentMessageScreen> {
                             imageUrl: Endpoints.baseImageUrl+presidentMessageData["image"].toString(),
                             fit: BoxFit.cover,
                             placeholder: (context, url) =>
-                            const Center(child: CircularProgressIndicator()),
+                            const Center(child: AppIndecator()),
                             errorWidget: (context, url, error) =>
                             const Icon(Icons.error),
                           )

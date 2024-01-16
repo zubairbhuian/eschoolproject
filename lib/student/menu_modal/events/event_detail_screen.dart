@@ -1,13 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:flutter/material.dart';
 
 import '../../../Widget/app_default_bar.dart';
 import '../../utils/constants.dart';
 
 class EventDetailScreen extends StatefulWidget {
-  String eventTitle, eventDescription, imagePath;
+ final String eventTitle, eventDescription, imagePath;
 
-  EventDetailScreen(
+const  EventDetailScreen(
       {Key? key,
       required this.eventTitle,
       required this.eventDescription,
@@ -50,7 +51,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                           child: CachedNetworkImage(
                             imageUrl: widget.imagePath,
                             placeholder: (context, url) =>
-                                const Center(child: CircularProgressIndicator()),
+                                const Center(child: AppIndecator()),
                             errorWidget: (context, url, error) =>
                                 const Icon(Icons.error, color: Constants.primaryColor,),
                           ),

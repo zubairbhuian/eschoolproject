@@ -1,8 +1,9 @@
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class DiariesScreen extends StatefulWidget {
-  dynamic diaryData;
+ final dynamic diaryData;
 
   DiariesScreen({Key? key, required this.diaryData}) : super(key: key);
 
@@ -27,7 +28,7 @@ class _DiariesScreenState extends State<DiariesScreen> {
     return Column(
       children: [
         isLoading == true
-            ? const Expanded(child: Center(child: CircularProgressIndicator()))
+            ? const Expanded(child: Center(child: AppIndecator()))
             : Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16, top: 8),
                 child: SingleChildScrollView(

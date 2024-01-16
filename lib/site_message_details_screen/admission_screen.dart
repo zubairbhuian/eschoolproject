@@ -1,4 +1,5 @@
 import 'package:eschoolproject/Widget/app_default_bar.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/data/network/apis/api_client.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,7 @@ class _AdmissionDetailScreenState extends State<AdmissionDetailScreen> {
               child: SingleChildScrollView(
             child: isLoading
                 ? Center(
-                  child: CircularProgressIndicator(),
+                  child: AppIndecator(),
                 )
                 : Padding(
                     padding: const EdgeInsets.only(left: 8, right: 8),

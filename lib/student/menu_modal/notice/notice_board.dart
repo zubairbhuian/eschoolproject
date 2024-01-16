@@ -1,4 +1,5 @@
 import 'package:eschoolproject/Widget/app_default_bar.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/data/network/apis/api_client.dart';
 import 'package:eschoolproject/student/data/network/constants/endpoints.dart';
 import 'package:eschoolproject/student/menu_modal/notice/notice_details_screen.dart';
@@ -48,7 +49,7 @@ class _NoticeBoardScreenState extends State<NoticeBoardScreen> {
         isLoading == true
             ? const Expanded(
                 child: Center(
-                  child: CircularProgressIndicator(),
+                  child: AppIndecator(),
                 ),
               )
             : Expanded(

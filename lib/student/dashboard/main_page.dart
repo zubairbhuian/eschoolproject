@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/data/sharepref/shared_preference_helper.dart';
 import 'package:eschoolproject/student/dashboard/student_home_screen.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
@@ -10,7 +11,6 @@ import 'package:hive/hive.dart';
 import '../data/network/apis/api_client.dart';
 import '../data/network/constants/endpoints.dart';
 import '../utils/assets.dart';
-import 'home_work_screen.dart';
 import '../utils/mixins.dart';
 import 'menu_bar_item_button.dart';
 
@@ -88,7 +88,7 @@ class _MainPageState extends State<MainPage> {
               child: Column(
                 children: [
                   isLoading == true
-                      ? const CircularProgressIndicator()
+                      ? const AppIndecator()
                       : Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -110,7 +110,7 @@ class _MainPageState extends State<MainPage> {
                                         imageUrl:
                                             student['image_url'].toString(),
                                         placeholder: (context, url) =>
-                                            const CircularProgressIndicator(),
+                                            const AppIndecator(),
                                         errorWidget: (context, url, error) =>
                                             SvgPicture.asset(
                                           Assets.personIcon,

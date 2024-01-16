@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/data/network/apis/api_client.dart';
 import 'package:eschoolproject/student/data/network/constants/endpoints.dart';
 import 'package:eschoolproject/student/menu_modal/events/event_detail_screen.dart';
@@ -20,8 +21,7 @@ class _EventScreenState extends State<EventScreen> {
   dynamic eventList;
 
   @override
-  void initState() {
-    // TODO: implement initState
+  void initState() {    // 
     super.initState();
     geteventList();
   }
@@ -49,7 +49,7 @@ class _EventScreenState extends State<EventScreen> {
           ),
           isLoading == true
               ? const Expanded(
-                  child: Center(child: CircularProgressIndicator()))
+                  child: Center(child: AppIndecator()))
               : Expanded(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -93,7 +93,7 @@ class _EventScreenState extends State<EventScreen> {
                                               placeholder: (context, url) =>
                                                   const Center(
                                                       child:
-                                                          CircularProgressIndicator()),
+                                                          AppIndecator()),
                                               errorWidget:
                                                   (context, url, error) =>
                                                       const Icon(

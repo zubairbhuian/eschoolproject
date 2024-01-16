@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/login/student_login_before_new.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +9,8 @@ import '../../Widget/app_default_bar.dart';
 import '../utils/assets.dart';
 
 class StudentProfile extends StatefulWidget {
-  dynamic studentData;
- StudentProfile({Key? key,
+ final dynamic studentData;
+const StudentProfile({Key? key,
   required this.studentData
   }) : super(key: key);
 
@@ -27,7 +28,6 @@ class _StudentProfileState extends State<StudentProfile> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     student=widget.studentData;
   }
@@ -61,7 +61,7 @@ class _StudentProfileState extends State<StudentProfile> {
               title: "Profile",
             ),
             isLoading == true
-                ? const Expanded(child: Center(child: CircularProgressIndicator()))
+                ? const Expanded(child: Center(child: AppIndecator()))
                 : Expanded(
                   child: Column(
                       //  crossAxisAlignment: CrossAxisAlignment.center,
@@ -82,7 +82,7 @@ class _StudentProfileState extends State<StudentProfile> {
                                 fit: BoxFit.cover,
                                 imageUrl: student['image_url'].toString(),
                                 placeholder: (context, url) =>
-                                const Center(child: CircularProgressIndicator()),
+                                const Center(child: AppIndecator()),
                                 errorWidget: (context, url, error) =>
                                     SvgPicture.asset(
                                       Assets.personIcon,

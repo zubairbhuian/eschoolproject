@@ -1,11 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eschoolproject/Widget/app_default_bar.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class MagazineDetailScreen extends StatefulWidget {
-  String megazineTitle, megazineDescription, imagePath;
-  MagazineDetailScreen(
+ final String megazineTitle, megazineDescription, imagePath;
+ const MagazineDetailScreen(
       {Key? key,
       required this.megazineTitle,
       required this.megazineDescription,
@@ -48,7 +49,7 @@ class _MagazineDetailScreenState extends State<MagazineDetailScreen> {
                       child: CachedNetworkImage(
                         imageUrl: widget.imagePath,
                         placeholder: (context, url) =>
-                        const Center(child: CircularProgressIndicator()),
+                        const Center(child: AppIndecator()),
                         errorWidget: (context, url, error) =>
                         const Icon(Icons.error, color: Constants.primaryColor,),
                       ),

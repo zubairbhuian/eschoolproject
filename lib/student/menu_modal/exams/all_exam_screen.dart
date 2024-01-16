@@ -1,12 +1,10 @@
-import 'package:eschoolproject/student/data/network/apis/api_client.dart';
-import 'package:eschoolproject/student/data/network/constants/endpoints.dart';
 import 'package:eschoolproject/student/menu_modal/exams/exam_details_screen.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class AllExamScreen extends StatefulWidget {
-  dynamic allExamList;
-  AllExamScreen(this.allExamList, {Key? key}) : super(key: key);
+ final dynamic allExamList;
+ const AllExamScreen(this.allExamList, {Key? key}) : super(key: key);
 
   @override
   State<AllExamScreen> createState() => _AllExamScreenState();

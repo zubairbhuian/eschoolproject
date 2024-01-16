@@ -2,9 +2,9 @@ import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class AppDefaultBar extends StatelessWidget {
-  String title;
+ final String title;
 
-  AppDefaultBar({
+ const AppDefaultBar({
     required this.title,
     Key? key,
   }) : super(key: key);

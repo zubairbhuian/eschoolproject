@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../Widget/app_default_bar.dart';
 
 class ExamDetails extends StatefulWidget {
-  dynamic examData;
+ final dynamic examData;
 
   ExamDetails(this.examData, {Key? key}) : super(key: key);
 

@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/data/network/apis/api_client.dart';
 import 'package:eschoolproject/student/data/network/constants/endpoints.dart';
 import 'package:eschoolproject/student/utils/assets.dart';
 import 'package:eschoolproject/teacher/dashboard/submit_assignment/create_assignment.dart';
 import 'package:eschoolproject/teacher/dashboard/submit_feedback/create_feedback.dart';
-import 'package:eschoolproject/teacher/teacher_menu_modal/teacher_profile/teacher_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive/hive.dart';
@@ -36,7 +36,6 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getNoticeList();
   }
@@ -88,7 +87,7 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                         fit: BoxFit.cover,
                         imageUrl: teacherImage.toString(),
                         placeholder: (context, url) =>
-                            const CircularProgressIndicator(),
+                            const AppIndecator(),
                         errorWidget: (context, url, error) => SvgPicture.asset(
                           Assets.personIcon,
                           width: 24,
@@ -356,7 +355,7 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
           ),
         ),
         isLoadingNotice == true
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(child: AppIndecator())
             : Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8, right: 8),

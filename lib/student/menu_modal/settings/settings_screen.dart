@@ -309,8 +309,8 @@ class _SettingScreenState extends State<SettingScreen> {
 }
 
 class SettingButton extends StatelessWidget {
-  SettingButton({Key? key, required this.settingItemtitle}) : super(key: key);
-  String settingItemtitle;
+const  SettingButton({Key? key, required this.settingItemtitle}) : super(key: key);
+ final String settingItemtitle;
 
   @override
   Widget build(BuildContext context) {

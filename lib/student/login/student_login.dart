@@ -9,9 +9,9 @@ import '../data/network/apis/api_client.dart';
 import '../data/network/constants/endpoints.dart';
 
 class StudentLogin extends StatefulWidget {
-  String logInAs;
+final  String logInAs;
 
-  StudentLogin({Key? key, required this.logInAs}) : super(key: key);
+ const StudentLogin({Key? key, required this.logInAs}) : super(key: key);
 
   @override
   State<StudentLogin> createState() => _StudentLoginState();

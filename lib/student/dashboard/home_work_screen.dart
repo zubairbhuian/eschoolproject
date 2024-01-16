@@ -1,11 +1,12 @@
-import 'package:eschoolproject/Widget/app_default_bar.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/controllers/diary_list_controller.dart';
 import 'package:eschoolproject/student/data/local/local_client.dart';
 import 'package:eschoolproject/student/data/sharepref/shared_preference_helper.dart';
+import 'package:eschoolproject/student/subject/subjects_details.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:intl/intl.dart';
 
 class HomeWorkScreen extends StatefulWidget {
   const HomeWorkScreen({Key? key}) : super(key: key);
@@ -72,7 +73,7 @@ class _HomeWorkScreenState extends State<HomeWorkScreen> {
               ),
             ),
             body: diaries.loader == true
-                ? const Center(child: CircularProgressIndicator())
+                ? const Center(child: AppIndecator())
                 : Column(
                     children: [
                       Container(
@@ -117,10 +118,11 @@ class _HomeWorkScreenState extends State<HomeWorkScreen> {
                           child: ListView.builder(
                             itemCount: filteredDiaries.length,
                             itemBuilder: (BuildContext context, int index) {
+                              var myDate =
+                                  DateTime.parse(filteredDiaries[index].date!);
                               return Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
-                  
                                   width: MediaQuery.of(context).size.width,
                                   padding: const EdgeInsets.all(20.0),
                                   decoration: BoxDecoration(
@@ -139,8 +141,10 @@ class _HomeWorkScreenState extends State<HomeWorkScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                          'Date: ${filteredDiaries[index].date}'),
+                                          'Date: ${DateFormat('DD-MM-yyyy').format(myDate)}'),
                                       const SizedBox(height: 10),
+                                      Text('Date: ${DateFormat('EEEE').format(myDate)}'),
+                                       const SizedBox(height: 10),
                                       Text(
                                           'Class: ${filteredDiaries[index].className}'),
                                       const SizedBox(height: 10),
@@ -149,33 +153,36 @@ class _HomeWorkScreenState extends State<HomeWorkScreen> {
                                       const SizedBox(height: 10),
                                       Text(
                                           'Diary Title: ${filteredDiaries[index].homeWork}'),
-                                      // const SizedBox(height: 10),
-                                      // ElevatedButton(
-                                      //   onPressed: () {
-                                      //     Navigator.push(
-                                      //       context,
-                                      //       MaterialPageRoute(
-                                      //           builder: (context) => SubjectsDetailsScreen(
-                                      //                 subjectName: diaries
-                                      //                     .subjectList[index].name
-                                      //                     .toString(),
-                                      //                 subjectId: diaries.subjectList[index].id
-                                      //                     .toString(),
-                                      //               )),
-                                      //     );
-                                      //   },
-                                      //   child: const Text(
-                                      //     'Details',
-                                      //     style: TextStyle(
-                                      //         color: Constants.whiteColor),
-                                      //   ),
-                                      //   style: ButtonStyle(
-                                      //     backgroundColor:
-                                      //         MaterialStateProperty.all(
-                                      //       Constants.greyColor,
-                                      //     ),
-                                      //   ),
-                                      // ),
+                                      const SizedBox(height: 10),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    SubjectsDetailsScreen(
+                                                      subjectName: diaries
+                                                          .diaryList[index]
+                                                          .subject
+                                                          .toString(),
+                                                      subjectId: diaries
+                                                          .diaryList[index].id
+                                                          .toString(),
+                                                    )),
+                                          );
+                                        },
+                                        child: const Text(
+                                          'Details',
+                                          style: TextStyle(
+                                              color: Constants.whiteColor),
+                                        ),
+                                        style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStateProperty.all(
+                                            Constants.greyColor,
+                                          ),
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),

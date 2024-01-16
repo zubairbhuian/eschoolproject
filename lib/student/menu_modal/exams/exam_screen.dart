@@ -1,4 +1,5 @@
 import 'package:eschoolproject/Widget/app_default_bar.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -112,16 +113,16 @@ class _ExamScreenState extends State<ExamScreen> with TickerProviderStateMixin {
               Center(
                   child: isLoading == false
                       ? allExamListView
-                      : const CircularProgressIndicator()),
+                      : const AppIndecator()),
               Center(
                   child: isLoading == false
                       ? upComingExamListView
-                      : const CircularProgressIndicator()),
+                      : const AppIndecator()),
               // Center(child: Text("No Exam")),
               Center(
                   child: isLoading == false
                       ? completedExamListView
-                      : const CircularProgressIndicator()),
+                      : const AppIndecator()),
             ], controller: _tabController))
           ],
         ),

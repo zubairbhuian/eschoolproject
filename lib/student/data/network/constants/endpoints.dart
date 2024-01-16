@@ -1,7 +1,7 @@
 class Endpoints {
   Endpoints._();
 
-  // base url
+  // base url.  https://noaparaideal.site/api/dairi-list
   static const String baseUrl = "https://noaparaideal.site/api/";
 
   static String? apiUrl = "noaparaideal.site";

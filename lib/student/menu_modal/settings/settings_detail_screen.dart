@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class SettingItemDetailScreen extends StatefulWidget {
-  String settingItemName;
-  String settingItemLink;
+ final String settingItemName;
+ final String settingItemLink;
 
-  SettingItemDetailScreen({
+ const SettingItemDetailScreen({
     required this.settingItemName,
     required this.settingItemLink,
     Key? key,

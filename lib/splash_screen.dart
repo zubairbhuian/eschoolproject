@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:eschoolproject/student/dashboard/main_page.dart';
 import 'package:eschoolproject/student/data/sharepref/shared_preference_helper.dart';
 import 'package:eschoolproject/student/login/student_login_before_new.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
@@ -17,8 +16,6 @@ class _SplashScreenState extends State<SplashScreen> {
   // bool auth = false;
   bool isLogin = false;
   String logInAs = '';
-
-  // TODO: get value from local storage
   SharedPreferenceHelper sharedPreferenceHelper = SharedPreferenceHelper();
 
   @override

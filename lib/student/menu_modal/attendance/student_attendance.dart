@@ -1,4 +1,5 @@
 import 'package:eschoolproject/Widget/app_default_bar.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/student/data/network/apis/api_client.dart';
 import 'package:eschoolproject/student/data/network/constants/endpoints.dart';
 import 'package:eschoolproject/student/data/sharepref/shared_preference_helper.dart';
@@ -76,7 +77,7 @@ class _StudentAttendanceScreenState extends State<StudentAttendanceScreen> {
       children: [
         AppDefaultBar(title: "Attendance"),
         isLoading == true
-            ? const Expanded(child: Center(child: CircularProgressIndicator()))
+            ? const Expanded(child: Center(child: AppIndecator()))
             : Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
                 child: SingleChildScrollView(

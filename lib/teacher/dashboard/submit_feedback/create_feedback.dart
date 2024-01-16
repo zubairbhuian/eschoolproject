@@ -1,9 +1,9 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:eschoolproject/Widget/app_default_bar.dart';
+import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/controllers/provide_feedback_controller.dart';
 import 'package:eschoolproject/student/data/network/apis/api_client.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
-import 'package:eschoolproject/student/utils/mixins.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -276,7 +276,7 @@ class _CreateFeedbackState extends State<CreateFeedback> {
                                           fontWeight: FontWeight.bold),
                                     )
                                   : const Center(
-                                      child: CircularProgressIndicator(),
+                                      child: LoadIndecator(),
                                     ),
                             ),
                           )),
