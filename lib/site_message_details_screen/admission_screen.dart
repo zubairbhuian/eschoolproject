@@ -45,11 +45,9 @@ class _AdmissionDetailScreenState extends State<AdmissionDetailScreen> {
           Expanded(
               child: SingleChildScrollView(
             child: isLoading
-                ? const Expanded(
-                    child: Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                  )
+                ? Center(
+                  child: CircularProgressIndicator(),
+                )
                 : Padding(
                     padding: const EdgeInsets.only(left: 8, right: 8),
                     child: SingleChildScrollView(

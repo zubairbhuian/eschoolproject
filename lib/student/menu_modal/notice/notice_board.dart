@@ -81,36 +81,38 @@ class _NoticeBoardScreenState extends State<NoticeBoardScreen> {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        const SizedBox(
-                                          height: 5,
-                                        ),
-                                        Text(
-                                          //snapshot.data![index].title!.toString(),
-                                          noticeData[index]['title'].toString(),
-                                          style: const TextStyle(
-                                            color: Constants.primaryColor,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          const SizedBox(
+                                            height: 5,
                                           ),
-                                        ),
-                                        const SizedBox(
-                                          height: 5,
-                                        ),
-                                        Text(
-                                          noticeData[index]['date'].toString(),
-                                          // snapshot.data![index].date!.toString(),
-                                          style: const TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.black,
-                                              height: 1),
-                                        ),
-                                        const SizedBox(
-                                          height: 5,
-                                        ),
-                                      ],
+                                          Text(
+                                            //snapshot.data![index].title!.toString(),
+                                            noticeData[index]['title'].toString(),
+                                            style: const TextStyle(
+                                              color: Constants.primaryColor,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                            noticeData[index]['date'].toString(),
+                                            // snapshot.data![index].date!.toString(),
+                                            style: const TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.black,
+                                                height: 1),
+                                          ),
+                                          const SizedBox(
+                                            height: 5,
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                     const Icon(Icons.arrow_forward_ios, color: Constants.primaryColor,)
                                   ],

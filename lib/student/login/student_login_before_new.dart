@@ -5,13 +5,11 @@ import 'package:eschoolproject/site_message_details_screen/headmaster_message_sc
 import 'package:eschoolproject/site_message_details_screen/president_message_screen.dart';
 import 'package:eschoolproject/student/dashboard/home_work_screen.dart';
 import 'package:eschoolproject/student/login/student_login.dart';
-import 'package:eschoolproject/student/menu_modal/admission/admission.dart';
 import 'package:eschoolproject/student/menu_modal/magazine/magazine.dart';
 import 'package:eschoolproject/student/menu_modal/notice/notice_board.dart';
 import 'package:eschoolproject/student/menu_modal/result/result_screen.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../data/network/apis/api_client.dart';
 import '../data/network/constants/endpoints.dart';
@@ -127,9 +125,9 @@ class _LogInBeforeNewScreenState extends State<LogInBeforeNewScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      LogInBeforeItem(
-                        itemTitle: "Magazine",
-                        imagePath: "assets/before_log_in/megazine.png",
+                                            LogInBeforeItem(
+                        itemTitle: "Result",
+                        imagePath: "assets/menu_bar_icon/result.png",
                         siteMessageData: siteMessageData,
                       ),
                       LogInBeforeItem(
@@ -155,20 +153,6 @@ class _LogInBeforeNewScreenState extends State<LogInBeforeNewScreen> {
                         imagePath: "assets/menu_bar_icon/notice.png",
                         siteMessageData: siteMessageData,
                       )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      LogInBeforeItem(
-                        itemTitle: "Result",
-                        imagePath: "assets/menu_bar_icon/result.png",
-                        siteMessageData: siteMessageData,
-                      ),
-                      Container(),
                     ],
                   ),
                   const SizedBox(height: 16),

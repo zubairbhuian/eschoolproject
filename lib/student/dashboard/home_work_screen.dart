@@ -4,11 +4,8 @@ import 'package:eschoolproject/student/data/local/local_client.dart';
 import 'package:eschoolproject/student/data/sharepref/shared_preference_helper.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 
-import '../subject/subjects_details.dart';
 
 class HomeWorkScreen extends StatefulWidget {
   const HomeWorkScreen({Key? key}) : super(key: key);
@@ -27,7 +24,6 @@ class _HomeWorkScreenState extends State<HomeWorkScreen> {
   bool isLoading = false;
   dynamic subjectList;
   DiaryListController diaryListController = DiaryListController();
-  final _myBox = Hive.box('eSchoolBox');
   List<String> selectedClasses = [];
 
   @override
@@ -124,7 +120,7 @@ class _HomeWorkScreenState extends State<HomeWorkScreen> {
                               return Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
-                                  height: 200,
+                  
                                   width: MediaQuery.of(context).size.width,
                                   padding: const EdgeInsets.all(20.0),
                                   decoration: BoxDecoration(
@@ -153,33 +149,33 @@ class _HomeWorkScreenState extends State<HomeWorkScreen> {
                                       const SizedBox(height: 10),
                                       Text(
                                           'Diary Title: ${filteredDiaries[index].homeWork}'),
-                                      const SizedBox(height: 10),
-                                      ElevatedButton(
-                                        onPressed: () {
-                                          // Navigator.push(
-                                          //   context,
-                                          //   MaterialPageRoute(
-                                          //       builder: (context) => SubjectsDetailsScreen(
-                                          //             subjectName: diaries
-                                          //                 .subjectList[index].name
-                                          //                 .toString(),
-                                          //             subjectId: diaries.subjectList[index].id
-                                          //                 .toString(),
-                                          //           )),
-                                          // );
-                                        },
-                                        child: const Text(
-                                          'Details',
-                                          style: TextStyle(
-                                              color: Constants.whiteColor),
-                                        ),
-                                        style: ButtonStyle(
-                                          backgroundColor:
-                                              MaterialStateProperty.all(
-                                            Constants.greyColor,
-                                          ),
-                                        ),
-                                      ),
+                                      // const SizedBox(height: 10),
+                                      // ElevatedButton(
+                                      //   onPressed: () {
+                                      //     Navigator.push(
+                                      //       context,
+                                      //       MaterialPageRoute(
+                                      //           builder: (context) => SubjectsDetailsScreen(
+                                      //                 subjectName: diaries
+                                      //                     .subjectList[index].name
+                                      //                     .toString(),
+                                      //                 subjectId: diaries.subjectList[index].id
+                                      //                     .toString(),
+                                      //               )),
+                                      //     );
+                                      //   },
+                                      //   child: const Text(
+                                      //     'Details',
+                                      //     style: TextStyle(
+                                      //         color: Constants.whiteColor),
+                                      //   ),
+                                      //   style: ButtonStyle(
+                                      //     backgroundColor:
+                                      //         MaterialStateProperty.all(
+                                      //       Constants.greyColor,
+                                      //     ),
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                                 ),
