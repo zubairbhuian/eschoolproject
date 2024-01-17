@@ -9,8 +9,8 @@ class AppIndecator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SpinKitFadingCircle(
-      size: size ?? 50,
+    return SpinKitWave(
+      size: size ?? 30,
       color: color ?? Constants.primaryColor,
     );
   }
