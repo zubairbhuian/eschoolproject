@@ -183,7 +183,7 @@ class _CreateFeedbackState extends State<CreateFeedback> {
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.grey),
                                 ),
-                                items: filteredSections.map((section) {
+                                items: sections.map((section) {
                                   final sectionId = section['id'].toString();
                                   final sectionName =
                                       section['name'].toString();
