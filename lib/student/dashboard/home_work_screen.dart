@@ -1,3 +1,4 @@
+import 'package:eschoolproject/Widget/app_default_bar.dart';
 import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/controllers/diary_list_controller.dart';
 import 'package:eschoolproject/student/data/local/local_client.dart';
@@ -46,32 +47,7 @@ class _HomeWorkScreenState extends State<HomeWorkScreen> {
               selectedClasses.contains(cls.className);
         }).toList();
         return Scaffold(
-            appBar: AppBar(
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(12.0),
-                    bottomRight: Radius.circular(12.0)),
-              ),
-              backgroundColor: Constants.primaryColor,
-              title: const Text(
-                'Diaries',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 26,
-                    fontWeight: FontWeight.normal),
-              ),
-              centerTitle: true,
-              leading: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.chevron_left,
-                  color: Colors.white,
-                  size: 36,
-                ),
-              ),
-            ),
+            appBar: CustomAppBar(title: 'Diaries',),
             body: diaries.loader == true
                 ? const Center(child: AppIndecator())
                 : Column(
@@ -143,8 +119,9 @@ class _HomeWorkScreenState extends State<HomeWorkScreen> {
                                       Text(
                                           'Date: ${DateFormat('DD-MM-yyyy').format(myDate)}'),
                                       const SizedBox(height: 10),
-                                      Text('Date: ${DateFormat('EEEE').format(myDate)}'),
-                                       const SizedBox(height: 10),
+                                      Text(
+                                          'Date: ${DateFormat('EEEE').format(myDate)}'),
+                                      const SizedBox(height: 10),
                                       Text(
                                           'Class: ${filteredDiaries[index].className}'),
                                       const SizedBox(height: 10),
@@ -156,17 +133,21 @@ class _HomeWorkScreenState extends State<HomeWorkScreen> {
                                       const SizedBox(height: 10),
                                       ElevatedButton(
                                         onPressed: () {
+                                          print(diaries.diaryList[index].className);
+                                          print(diaries.diaryList[index].sectionName);
+                                          print(diaries.diaryList[index].date);
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
                                                     SubjectsDetailsScreen(
-                                                      subjectName: diaries
-                                                          .diaryList[index]
-                                                          .subject
+                                                      className: filteredDiaries[index]
+                                                          .className
                                                           .toString(),
-                                                      subjectId: diaries
-                                                          .diaryList[index].id
+                                                      sectionName: filteredDiaries[index]
+                                                          .sectionName
+                                                          .toString(),
+                                                      date: filteredDiaries[index].date
                                                           .toString(),
                                                     )),
                                           );
