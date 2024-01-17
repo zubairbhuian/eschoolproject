@@ -54,6 +54,11 @@ class _CreateFeedbackState extends State<CreateFeedback> {
       setState(() {
         isLoading = false;
         classes = classInfoList['class'];
+        print("classes");
+        print("classes");
+        print("classes");
+        print("classes");
+        print(classes);
         sections = classInfoList['section'];
       });
     }

@@ -76,7 +76,7 @@ class _SubjectsDetailsScreenState extends State<SubjectsDetailsScreen> {
               }
 
               return SingleChildScrollView(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 22),
                 child: Table(
                     border: TableBorder.all(),
                     columnWidths: <int, TableColumnWidth>{
@@ -90,19 +90,38 @@ class _SubjectsDetailsScreenState extends State<SubjectsDetailsScreen> {
                       // 4: FlexColumnWidth(),
                     },
                     defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                    children: List.generate(diaryList.length, (index) {
-                      return TableRow(children: [
+                    children: [
+                      // header
+                      TableRow(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 234, 234, 234)
+                        ),
+                        children: [
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(diaryList[index].subject ?? "",
-                              style: TextStyle(fontWeight: FontWeight.w500)),
+                          padding: const EdgeInsets.all(12),
+                          child: Text("Subject",
+                              style: TextStyle(fontWeight: FontWeight.w600)),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(8),
-                          child: Text(diaryList[index].homeWork ?? ""),
+                          padding: const EdgeInsets.all(12),
+                          child: Text("Home Work",
+                              style: TextStyle(fontWeight: FontWeight.w600)),
                         ),
-                      ]);
-                    })),
+                      ]),
+                      ...List.generate(diaryList.length, (index) {
+                        return TableRow(children: [
+                          Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Text(diaryList[index].subject ?? "",
+                                style: TextStyle(fontWeight: FontWeight.w400)),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Text(diaryList[index].homeWork ?? ""),
+                          ),
+                        ]);
+                      })
+                    ]),
               );
             }));
       },

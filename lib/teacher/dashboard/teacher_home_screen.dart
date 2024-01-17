@@ -8,6 +8,7 @@ import 'package:eschoolproject/teacher/dashboard/submit_feedback/create_feedback
 import 'package:eschoolproject/teacher/myDiary/my_diary_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -199,29 +200,21 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                             ),
                           ),
                         ),
-                        Container(
-                          alignment: Alignment.bottomCenter,
-                          height: 35,
-                          color: Constants.primaryColor,
-                          child: TextButton(
-                            onPressed: () {
-                              print("dsfsfsdf");
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => MyWidget(
-                                    name: teacherName,
-                                  ),
-                                ),
-                              );
-                            },
-                            style: TextButton.styleFrom(
-                              minimumSize: Size.zero, // Set this
-                              padding: EdgeInsets.zero, // and this
-                            ),
-                            child: const Text(
-                              'My Diary',
-                              style: TextStyle(color: Colors.white),
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(() => MyDiaryScreen(
+                                  name: teacherName,
+                                ));
+                          },
+                          child: Container(
+                            alignment: Alignment.bottomCenter,
+                            height: 35,
+                            color: Constants.primaryColor,
+                            child: Center(
+                              child: const Text(
+                                'Edit Diary',
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           ),
                         )

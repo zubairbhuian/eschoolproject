@@ -133,9 +133,6 @@ class _HomeWorkScreenState extends State<HomeWorkScreen> {
                                       const SizedBox(height: 10),
                                       ElevatedButton(
                                         onPressed: () {
-                                          print(diaries.diaryList[index].className);
-                                          print(diaries.diaryList[index].sectionName);
-                                          print(diaries.diaryList[index].date);
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(

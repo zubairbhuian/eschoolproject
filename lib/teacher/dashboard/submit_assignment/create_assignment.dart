@@ -61,6 +61,13 @@ class _CreateAssignmentState extends State<CreateAssignment> {
         sessions = classInfoList['sessions'];
         classes = classInfoList['class'];
         sections = classInfoList['section'];
+        print("ZZZZZZZZZZZZZZ");
+        print(sessions);
+        print("ZZZZZZZZZZZZZZ");
+        print(classes);
+        print("ZZZZZZZZZZZZZZ");
+        print(sections);
+        print("ZZZZZZZZZZZZZZ");
       });
     }
   }
@@ -172,6 +179,7 @@ class _CreateAssignmentState extends State<CreateAssignment> {
                               const SizedBox(
                                 height: 16,
                               ),
+
                               DropdownButtonFormField2(
                                 decoration: InputDecoration(
                                   isDense: true,
@@ -189,7 +197,7 @@ class _CreateAssignmentState extends State<CreateAssignment> {
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.grey),
                                 ),
-                                items: filteredClasses.map((item) {
+                                items: classes.map((item) {
                                   final classId = item['id'].toString();
                                   final className = item['name'].toString();
                                   return DropdownMenuItem(
@@ -261,7 +269,7 @@ class _CreateAssignmentState extends State<CreateAssignment> {
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.grey),
                                 ),
-                                items: filteredSections.map((section) {
+                                items: sections.map((section) {
                                   final sectionId = section['id'].toString();
                                   final sectionName =
                                       section['name'].toString();
@@ -399,5 +407,7 @@ class _CreateAssignmentState extends State<CreateAssignment> {
         ),
       ),
     );
+  
+  
   }
 }

@@ -2,19 +2,20 @@ import 'package:eschoolproject/Widget/app_default_bar.dart';
 import 'package:eschoolproject/Widget/app_indecator.dart';
 import 'package:eschoolproject/controllers/diary_list_controller.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
+import 'package:eschoolproject/teacher/myDiary/edite_my_diary.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-class MyWidget extends StatefulWidget {
+class MyDiaryScreen extends StatefulWidget {
   final String name;
-  const MyWidget({super.key, required this.name});
+  const MyDiaryScreen({super.key, required this.name});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<MyDiaryScreen> createState() => _MyDiaryScreenState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _MyDiaryScreenState extends State<MyDiaryScreen> {
   DiaryListController diaryListController = DiaryListController();
   // List<String> selectedClasses = [];
 
@@ -33,7 +34,7 @@ class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "My Diary"),
+      appBar: CustomAppBar(title: "Edit Diary"),
       body: GetBuilder<DiaryListController>(builder: (controller) {
         var now = DateTime.now();
         var diaryList = controller.diaryList
@@ -41,7 +42,7 @@ class _MyWidgetState extends State<MyWidget> {
                 diary.teacherName == widget.name &&
                 onDateFormet("${diary.date!}") == onDateFormet("${now}"))
             .toList();
-        
+
         if (controller.loader)
           return Center(
             child: AppIndecator(),
@@ -72,7 +73,7 @@ class _MyWidgetState extends State<MyWidget> {
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 12),
                                 child: Text(
-                                  "ID ${diaryList[index].id}",
+                                  "${onDateFormet("${diaryList[index].date}")}-${DateFormat('EEEE').format(DateTime.parse("${diaryList[index].date}"))}",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.white),
@@ -80,9 +81,19 @@ class _MyWidgetState extends State<MyWidget> {
                               ),
                             ),
                             IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  //!  routung
+                                  Get.to(() => EditeMyDiary(
+                                    id: diaryList[index].id??"",
+                                    sessionId: diaryList[index].sessionId??"",
+                                    classId: diaryList[index].classId??"",
+                                    sectionId: diaryList[index].sectionId??"",
+                                    subject: diaryList[index].subject??"",
+                                    homeWork: diaryList[index].homeWork??"",
+                                  ));
+                                },
                                 icon: Icon(
-                                  Icons.edit,
+                                  Icons.edit_note,
                                   color: Colors.white,
                                 ))
                           ],
@@ -98,46 +109,7 @@ class _MyWidgetState extends State<MyWidget> {
                       defaultVerticalAlignment:
                           TableCellVerticalAlignment.middle,
                       children: [
-                        // date
-                        TableRow(children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              "Date",
-                              style: TextStyle(fontWeight: FontWeight.w500),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                                "${onDateFormet("${diaryList[index].date}")}"),
-                          ),
-                        ]),
-                        // Day
-                        TableRow(children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text("Day",
-                                style: TextStyle(fontWeight: FontWeight.w500)),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8),
-                            child:
-                                Text(' ${DateFormat('EEEE').format(DateTime.parse("${diaryList[index].date}"))}'),
-                          ),
-                        ]),
-                        // class ID
-                        // TableRow(children: [
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8.0),
-                        //     child: Text("Class ID",
-                        //         style: TextStyle(fontWeight: FontWeight.w500)),
-                        //   ),
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8),
-                        //     child: Text(' ${diaryList[0].classId}'),
-                        //   ),
-                        // ]),
+                       
                         // className
                         TableRow(children: [
                           Padding(
@@ -150,18 +122,7 @@ class _MyWidgetState extends State<MyWidget> {
                             child: Text(' ${diaryList[0].className}'),
                           ),
                         ]),
-                        // sectionId
-                        // TableRow(children: [
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8.0),
-                        //     child: Text("Section Name",
-                        //         style: TextStyle(fontWeight: FontWeight.w500)),
-                        //   ),
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8),
-                        //     child: Text(' ${diaryList[0].sectionId}'),
-                        //   ),
-                        // ]),
+                       
                         // sectionName
                         TableRow(children: [
                           Padding(
@@ -174,67 +135,7 @@ class _MyWidgetState extends State<MyWidget> {
                             child: Text(' ${diaryList[0].sectionName}'),
                           ),
                         ]),
-                        // TableRow(children: [
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8.0),
-                        //     child: Text("Teacher Name",
-                        //         style: TextStyle(fontWeight: FontWeight.w500)),
-                        //   ),
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8),
-                        //     child: Text(' ${diaryList[0].teacherName}'),
-                        //   ),
-                        // ]),
-                        //sessionId
-                        // TableRow(children: [
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8.0),
-                        //     child: Text("Session Id",
-                        //         style: TextStyle(fontWeight: FontWeight.w500)),
-                        //   ),
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8),
-                        //     child: Text(' ${diaryList[0].sessionId}'),
-                        //   ),
-                        // ]),
-                        // //Start Date
-                        // TableRow(children: [
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8.0),
-                        //     child: Text("Start Date",
-                        //         style: TextStyle(fontWeight: FontWeight.w500)),
-                        //   ),
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8),
-                        //     child: Text(
-                        //         ' ${DateFormat('DD-MM-yyyy').format(DateTime.parse(diaryList[0].start!))}'),
-                        //   ),
-                        // ]),
-                        // //End Date
-                        // TableRow(children: [
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8.0),
-                        //     child: Text("End Date",
-                        //         style: TextStyle(fontWeight: FontWeight.w500)),
-                        //   ),
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8),
-                        //     child: Text(
-                        //         ' ${DateFormat('DD-MM-yyyy').format(DateTime.parse(diaryList[0].end!))}'),
-                        //   ),
-                        // ]),
-                        // // teacherName
-                        // TableRow(children: [
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8.0),
-                        //     child: Text("Teacher Name",
-                        //         style: TextStyle(fontWeight: FontWeight.w500)),
-                        //   ),
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(8),
-                        //     child: Text(' ${diaryList[0].teacherName}'),
-                        //   ),
-                        // ]),
+                       
                         // subject
                         TableRow(children: [
                           Padding(

@@ -70,4 +70,58 @@ class SubmitDiaryController extends GetxController {
       }
     });
   }
+
+  updateDairy(
+    String id,
+    String? sessionId,
+    String? clsId,
+    String? sectionId,
+    String? subject,
+    String? homeWork,
+  ) async {
+    loader = true;
+    Future.delayed(const Duration(milliseconds: 10), () {
+      update();
+    });
+
+    Map body = {
+      'session_id': sessionId,
+      'class_id': clsId,
+      'section_id': sectionId,
+      'subject': subject,
+      'home_work': homeWork,
+    };
+    String jsonBody = json.encode(body);
+
+    server
+        .postRequest(endPoint: "update_diary/${id}", body: jsonBody)
+        .then((response) {
+      print(json.decode(response.body));
+      if (response != null && response.statusCode == 200) {
+        update();
+        final jsonResponse = json.decode(response.body);
+        print(jsonResponse);
+
+        var diaryData = AddDiaryResponseModel.fromJson(jsonResponse);
+        successMsg = diaryData.info;
+
+        subjectController.clear();
+        homeWorkController.clear();
+
+        loader = false;
+        Future.delayed(const Duration(milliseconds: 10), () {
+          update();
+        });
+        Get.rawSnackbar(
+            message: 'Submission Successful!',
+            backgroundColor: Constants.successMsgColor);
+      } else {
+        loader = false;
+        Future.delayed(const Duration(milliseconds: 10), () {
+          update();
+        });
+        Get.rawSnackbar(message: 'Please enter valid input');
+      }
+    });
+  }
 }
