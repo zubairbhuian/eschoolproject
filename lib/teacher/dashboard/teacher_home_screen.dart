@@ -5,6 +5,7 @@ import 'package:eschoolproject/student/data/network/constants/endpoints.dart';
 import 'package:eschoolproject/student/utils/assets.dart';
 import 'package:eschoolproject/teacher/dashboard/submit_assignment/create_assignment.dart';
 import 'package:eschoolproject/teacher/dashboard/submit_feedback/create_feedback.dart';
+import 'package:eschoolproject/teacher/myDiary/my_diary_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive/hive.dart';
@@ -86,8 +87,7 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                       child: CachedNetworkImage(
                         fit: BoxFit.cover,
                         imageUrl: teacherImage.toString(),
-                        placeholder: (context, url) =>
-                            const AppIndecator(),
+                        placeholder: (context, url) => const AppIndecator(),
                         errorWidget: (context, url, error) => SvgPicture.asset(
                           Assets.personIcon,
                           width: 24,
@@ -205,11 +205,12 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                           color: Constants.primaryColor,
                           child: TextButton(
                             onPressed: () {
+                              print("dsfsfsdf");
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => CreateAssignment(
-                                    teacherName: teacherName,
+                                  builder: (context) => MyWidget(
+                                    name: teacherName,
                                   ),
                                 ),
                               );
@@ -219,7 +220,7 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
                               padding: EdgeInsets.zero, // and this
                             ),
                             child: const Text(
-                              'Details',
+                              'My Diary',
                               style: TextStyle(color: Colors.white),
                             ),
                           ),

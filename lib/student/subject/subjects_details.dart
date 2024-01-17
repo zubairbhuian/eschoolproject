@@ -163,7 +163,7 @@ class _SubjectsDetailsScreenState extends State<SubjectsDetailsScreen> {
                                 TableRow(children: [
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text("Teacher Name",
+                                    child: Text("Group Id",
                                         style: TextStyle(
                                             fontWeight: FontWeight.w500)),
                                   ),

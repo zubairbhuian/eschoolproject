@@ -52,150 +52,150 @@ class _LogInBeforeNewScreenState extends State<LogInBeforeNewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-            child: SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: isLoading == true
-            ? const Center(child: AppIndecator())
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  const Column(
-                    children: [
-                      Image(
-                        height: 80,
-                        width: 80,
-                        image: AssetImage(
-                          'assets/logo1.png',
-                        ),
+            child: SizedBox(
+              child: isLoading == true
+                  ? const Center(child: AppIndecator())
+                  : SingleChildScrollView(
+                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 22),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          const Column(
+                            children: [
+                              Image(
+                                height: 80,
+                                width: 80,
+                                image: AssetImage(
+                                  'assets/logo1.png',
+                                ),
+                              ),
+                              Divider(),
+                              Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "Noapara Ideal School",
+                                  style: TextStyle(
+                                      fontSize: 26,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xff002147)),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                              Divider()
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              LogInBeforeItem(
+                                  itemTitle: "About School",
+                                  imagePath: "assets/before_log_in/about_school.png",
+                                  siteMessageData: siteMessageData),
+                              LogInBeforeItem(
+                                itemTitle: "President Message",
+                                imagePath: "assets/before_log_in/person.png",
+                                siteMessageData: siteMessageData,
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              LogInBeforeItem(
+                                  itemTitle: "Headmaster Message",
+                                  imagePath: "assets/before_log_in/person.png",
+                                  siteMessageData: siteMessageData),
+                              LogInBeforeItem(
+                                itemTitle: "Admission",
+                                imagePath: "assets/before_log_in/admission.png",
+                                siteMessageData: siteMessageData,
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              LogInBeforeItem(
+                                itemTitle: "Magazine",
+                                imagePath: "assets/menu_bar_icon/megazine.png",
+                                siteMessageData: siteMessageData,
+                              ),
+                              LogInBeforeItem(
+                                itemTitle: "Contact",
+                                imagePath: "assets/before_log_in/contact.png",
+                                siteMessageData: siteMessageData,
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              LogInBeforeItem(
+                                itemTitle: "Diary",
+                                imagePath: "assets/menu_bar_icon/diary.png",
+                                siteMessageData: siteMessageData,
+                              ),
+                              LogInBeforeItem(
+                                itemTitle: "Notice",
+                                imagePath: "assets/menu_bar_icon/notice.png",
+                                siteMessageData: siteMessageData,
+                              )
+                            ],
+                          ),
+                          const SizedBox(height: 16),
+                          Row(
+                            children: [
+                              LogInBeforeItem(
+                                itemTitle: "Result",
+                                imagePath: "assets/menu_bar_icon/result.png",
+                                siteMessageData: siteMessageData,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 16),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            height: 46,
+                            child: OutlinedButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => StudentLogin(
+                                              logInAs: 'teacher',
+                                            )));
+                              },
+                              child: const Text(
+                                'Teacher Login',
+                                style: TextStyle(color: Colors.white, fontSize: 14),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                backgroundColor: Constants.primaryColor,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      Divider(),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "Noapara Ideal School",
-                          style: TextStyle(
-                              fontSize: 26,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xff002147)),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      Divider()
-                    ],
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      LogInBeforeItem(
-                          itemTitle: "About School",
-                          imagePath: "assets/before_log_in/about_school.png",
-                          siteMessageData: siteMessageData),
-                      LogInBeforeItem(
-                        itemTitle: "President Message",
-                        imagePath: "assets/before_log_in/person.png",
-                        siteMessageData: siteMessageData,
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      LogInBeforeItem(
-                          itemTitle: "Headmaster Message",
-                          imagePath: "assets/before_log_in/person.png",
-                          siteMessageData: siteMessageData),
-                      LogInBeforeItem(
-                        itemTitle: "Admission",
-                        imagePath: "assets/before_log_in/admission.png",
-                        siteMessageData: siteMessageData,
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      LogInBeforeItem(
-                        itemTitle: "Magazine",
-                        imagePath: "assets/menu_bar_icon/megazine.png",
-                        siteMessageData: siteMessageData,
-                      ),
-                      LogInBeforeItem(
-                        itemTitle: "Contact",
-                        imagePath: "assets/before_log_in/contact.png",
-                        siteMessageData: siteMessageData,
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      LogInBeforeItem(
-                        itemTitle: "Diary",
-                        imagePath: "assets/menu_bar_icon/diary.png",
-                        siteMessageData: siteMessageData,
-                      ),
-                      LogInBeforeItem(
-                        itemTitle: "Notice",
-                        imagePath: "assets/menu_bar_icon/notice.png",
-                        siteMessageData: siteMessageData,
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      LogInBeforeItem(
-                        itemTitle: "Result",
-                        imagePath: "assets/menu_bar_icon/result.png",
-                        siteMessageData: siteMessageData,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: 46,
-                    child: OutlinedButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => StudentLogin(
-                                      logInAs: 'teacher',
-                                    )));
-                      },
-                      child: const Text(
-                        'Teacher Login',
-                        style: TextStyle(color: Colors.white, fontSize: 14),
-                      ),
-                      style: OutlinedButton.styleFrom(
-                        backgroundColor: Constants.primaryColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-      ),
-    )));
+            )));
   }
 }
 
