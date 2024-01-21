@@ -6,7 +6,7 @@ import 'package:eschoolproject/teacher/myDiary/edite_my_diary.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
+import 'package:logger/logger.dart';
 class MyDiaryScreen extends StatefulWidget {
   final String name;
   const MyDiaryScreen({super.key, required this.name});
@@ -42,6 +42,9 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                 diary.teacherName == widget.name &&
                 onDateFormet("${diary.date!}") == onDateFormet("${now}"))
             .toList();
+        Logger logger = Logger();
+        logger.e(diaryList.length);
+
 
         if (controller.loader)
           return Center(
@@ -84,13 +87,13 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                                 onPressed: () {
                                   //!  routung
                                   Get.to(() => EditeMyDiary(
-                                    id: diaryList[index].id??"",
-                                    sessionId: diaryList[index].sessionId??"",
-                                    classId: diaryList[index].classId??"",
-                                    sectionId: diaryList[index].sectionId??"",
-                                    subject: diaryList[index].subject??"",
-                                    homeWork: diaryList[index].homeWork??"",
-                                  ));
+                                        id: diaryList[index].id ?? "",
+                                        sessionId:diaryList[index].sessionId ?? "",
+                                        classId: diaryList[index].classId ?? "",
+                                        sectionId:diaryList[index].sectionId ?? "",
+                                        subject: diaryList[index].subject ?? "",
+                                        homeWork:diaryList[index].homeWork ?? "",
+                                      ));
                                 },
                                 icon: Icon(
                                   Icons.edit_note,
@@ -109,7 +112,6 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                       defaultVerticalAlignment:
                           TableCellVerticalAlignment.middle,
                       children: [
-                       
                         // className
                         TableRow(children: [
                           Padding(
@@ -119,10 +121,10 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8),
-                            child: Text(' ${diaryList[0].className}'),
+                            child: Text(' ${diaryList[index].className}'),
                           ),
                         ]),
-                       
+
                         // sectionName
                         TableRow(children: [
                           Padding(
@@ -132,10 +134,10 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8),
-                            child: Text(' ${diaryList[0].sectionName}'),
+                            child: Text(' ${diaryList[index].sectionName}'),
                           ),
                         ]),
-                       
+
                         // subject
                         TableRow(children: [
                           Padding(
@@ -145,7 +147,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8),
-                            child: Text(' ${diaryList[0].subject}'),
+                            child: Text(' ${diaryList[index].subject}'),
                           ),
                         ]),
                         // homeWork
@@ -157,7 +159,7 @@ class _MyDiaryScreenState extends State<MyDiaryScreen> {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8),
-                            child: Text(' ${diaryList[0].homeWork}'),
+                            child: Text(' ${diaryList[index].homeWork}'),
                           ),
                         ]),
                       ],

@@ -6,6 +6,7 @@ import 'package:eschoolproject/student/data/network/apis/api_client.dart';
 import 'package:eschoolproject/student/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
 
 class EditeMyDiary extends StatefulWidget {
   final String id;
@@ -15,14 +16,15 @@ class EditeMyDiary extends StatefulWidget {
   final String homeWork;
   final String subject;
 
-  const EditeMyDiary(
-      {super.key,
-      required this.sessionId,
-      required this.classId,
-      required this.sectionId,
-      required this.homeWork,
-      required this.subject,
-      required this.id});
+  const EditeMyDiary({
+    super.key,
+    required this.sessionId,
+    required this.classId,
+    required this.sectionId,
+    required this.homeWork,
+    required this.subject,
+    required this.id,
+  });
 
   @override
   State<EditeMyDiary> createState() => _EditeMyDiaryState();
@@ -39,12 +41,11 @@ class _EditeMyDiaryState extends State<EditeMyDiary> {
       TextEditingController(text: widget.homeWork);
   late TextEditingController _subjectController =
       TextEditingController(text: widget.subject);
-  String? selectedSession = '',
-      selectedClass = 'One',
-      selectedSection = '',
-      selectedGroup = '';
+  String? selectedSession, selectedClass, selectedSection;
 
-  String? selectedSessionId = '', selectedClassId = '', selectedSectionId;
+  late String? selectedSessionId = widget.sessionId,
+      selectedClassId = widget.classId,
+      selectedSectionId = widget.sectionId;
 
   String studentName = '';
   String studentRoll = '';
@@ -128,6 +129,7 @@ class _EditeMyDiaryState extends State<EditeMyDiary> {
                                 height: 16,
                               ),
                               DropdownButtonFormField2(
+                                value: selectedSessionId,
                                 decoration: InputDecoration(
                                   isDense: true,
                                   contentPadding: EdgeInsets.zero,
@@ -200,6 +202,7 @@ class _EditeMyDiaryState extends State<EditeMyDiary> {
                                 height: 16,
                               ),
                               DropdownButtonFormField2(
+                                value: selectedClassId,
                                 decoration: InputDecoration(
                                   isDense: true,
                                   contentPadding: EdgeInsets.zero,
@@ -383,15 +386,27 @@ class _EditeMyDiaryState extends State<EditeMyDiary> {
                       ),
                       GestureDetector(
                           onTap: () async {
-                            addDiary.updateDairy(
-                                widget.id,
-                                selectedSessionId.toString(),
-                                selectedClassId.toString(),
-                                selectedSectionId.toString(),
-                                _subjectController.text.toString().trim(),
-                                _homeWorkcontroller.text.toString().trim());
-                            _homeWorkcontroller.clear();
-                            _subjectController.clear();
+                            Logger logger = Logger();
+                            logger.e(selectedClassId);
+                            logger.e(selectedSectionId);
+                            logger.e(selectedSessionId);
+
+                            if (selectedSectionId == null) {
+                              Get.rawSnackbar(
+                                  message: 'all field are mandatory',
+                                  backgroundColor: Colors.red);
+                            } else {
+                              addDiary.updateDairy(
+                                  widget.id,
+                                  selectedSessionId.toString(),
+                                  selectedClassId.toString(),
+                                  selectedSectionId.toString(),
+                                  _subjectController.text.toString().trim(),
+                                  _homeWorkcontroller.text.toString().trim());
+                            }
+
+                            // _homeWorkcontroller.clear();
+                            // _subjectController.clear();
                           },
                           child: Container(
                             height: 60,

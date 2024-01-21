@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:eschoolproject/controllers/diary_list_controller.dart';
 import 'package:eschoolproject/student/data/network/apis/server.dart';
 import 'package:eschoolproject/student/data/network/constants/endpoints.dart';
 import 'package:eschoolproject/student/data/network/models/add_diary_response_model.dart';
@@ -10,6 +11,7 @@ import 'package:get/get.dart';
 
 class SubmitDiaryController extends GetxController {
   UserService userService = UserService();
+   DiaryListController diaryListController = DiaryListController();
   Server server = Server();
   bool loader = false;
   dynamic successMsg;
@@ -98,6 +100,8 @@ class SubmitDiaryController extends GetxController {
         .then((response) {
       print(json.decode(response.body));
       if (response != null && response.statusCode == 200) {
+            diaryListController = Get.put(DiaryListController());
+    diaryListController.getDiaryList();
         update();
         final jsonResponse = json.decode(response.body);
         print(jsonResponse);

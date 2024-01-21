@@ -61,13 +61,6 @@ class _CreateAssignmentState extends State<CreateAssignment> {
         sessions = classInfoList['sessions'];
         classes = classInfoList['class'];
         sections = classInfoList['section'];
-        print("ZZZZZZZZZZZZZZ");
-        print(sessions);
-        print("ZZZZZZZZZZZZZZ");
-        print(classes);
-        print("ZZZZZZZZZZZZZZ");
-        print(sections);
-        print("ZZZZZZZZZZZZZZ");
       });
     }
   }
@@ -269,7 +262,7 @@ class _CreateAssignmentState extends State<CreateAssignment> {
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.grey),
                                 ),
-                                items: sections.map((section) {
+                                items: filteredSections.map((section) {
                                   final sectionId = section['id'].toString();
                                   final sectionName =
                                       section['name'].toString();
