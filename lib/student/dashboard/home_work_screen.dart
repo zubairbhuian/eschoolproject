@@ -117,7 +117,7 @@ class _HomeWorkScreenState extends State<HomeWorkScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                          'Date: ${DateFormat('DD-MM-yyyy').format(myDate)}'),
+                                          'Date: ${DateFormat('dd-MM-yyyy').format(myDate)}'),
                                       const SizedBox(height: 10),
                                       Text(
                                           'Date: ${DateFormat('EEEE').format(myDate)}'),
